@@ -3,9 +3,9 @@ name: Java CI with Gradle
 # 동작 조건 설정: develop 브랜치에 push or pull request가 발생할 경우 동작
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    # 0. 외부 설정 파일 세팅 (application-db.yml)
+    # 0. 외부 설정 파일 세팅 (application.yml)
     - name: 외부 설정 파일 세팅
       run: echo ./src/main/resources/application.yml
     
