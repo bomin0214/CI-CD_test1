@@ -58,6 +58,6 @@ jobs:
             docker load -i cicd.tar
             docker run -d --name cicd \
               -e DB_JDBC_URL=jdbc:mysql://localhost:3306/test \
-              -e DB_USER_NAME=test \
-              -e DB_PASSWORD=test \
+              -e DB_USER_NAME=root \
+              -e DB_PASSWORD=12345678 \
               -p 8080:8080 cicd:latest
