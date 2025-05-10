@@ -56,4 +56,8 @@ jobs:
             docker rm -f cicd || true
             docker rmi cicd:latest || true
             docker load -i cicd.tar
-            docker run -d --name cicd --env-file /home/ubuntu/.env -p 8080:8080 cicd:latest
+            docker run -d --name cicd \
+              -e DB_JDBC_URL=jdbc:mysql://localhost:3306/test \
+              -e DB_USER_NAME=test \
+              -e DB_PASSWORD=test \
+              -p 8080:8080 cicd:latest
